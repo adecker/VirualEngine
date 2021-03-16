@@ -77,7 +77,7 @@ class EngineSimulation:
         return self.__simulation_data[pid].get_value() if pid in self.__simulation_data else None
 
     def get_response_for_pid(self, pid):
-        return self.__simulation_data[pid].get_response() if pid in self.__simulation_data else None
+        return self.__simulation_data[pid].get_response() if pid in self.__simulation_data else 'NO DATA'
 
 class SimulationTimer:
 

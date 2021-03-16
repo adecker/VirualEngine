@@ -7,5 +7,7 @@ class EngineSpeed(PID):
 
     def update_response(self):
         response_bytes = int(self.get_value() * 4).to_bytes(length=2, byteorder='big')
+        self._response.clear()
+        self._response.append(self._pid)
         self._response.append(response_bytes[0])
         self._response.append(response_bytes[1])

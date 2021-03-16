@@ -2,8 +2,8 @@
 class PID:
 
     def __init__(self, pid, pid_data, simulation_timer):
-        self.__pid = pid
-        self._response = [self.__pid]
+        self._pid = pid
+        self._response = []
         self.__value = 0
         self.__pid_data = pid_data
         self.__simulation_timer = simulation_timer
