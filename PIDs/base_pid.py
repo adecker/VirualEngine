@@ -1,4 +1,3 @@
-
 class PID:
 
     def __init__(self, pid, pid_data, simulation_timer):
@@ -28,11 +27,14 @@ class PID:
 
     def get_value (self):
         if self.__pid_data is None and self.__simulation_timer is None:
+            print("Requesting value for pid: {} - {}".format(self._pid, self.__value))
             return self.__value
         else:
             sim_time = self.__simulation_timer.get_simulation_time()
-            return self.__pid_data[sim_time] if sim_time in self.__pid_data \
+            value = self.__pid_data[sim_time] if sim_time in self.__pid_data \
                 else self.__pid_data[min(self.__pid_data.keys(), key=lambda k: abs(k-sim_time))]
+            print("Requesting value for pid: {} from simulation at time {} - {}".format(self._pid, round(sim_time), value))
+            return value
 
 
 
